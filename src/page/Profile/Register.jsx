@@ -58,19 +58,7 @@ const Register = () => {
             />
            
           </div>
-          <div className="mb-3">
-            <label for="photURL" className="form-label">
-              Photo URL
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="photURL"
-              aria-describedby="emailHelp"
-              name="photo"
-            />
-           
-          </div>
+        
           <div className="mb-3">
             <label for="inputEmail1" className="form-label">
               Email address
@@ -82,6 +70,19 @@ const Register = () => {
               aria-describedby="emailHelp"
               name="email"
               required
+            />
+           
+          </div>
+          <div className="mb-3">
+            <label for="photURL" className="form-label">
+              Photo URL
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="photURL"
+              aria-describedby="emailHelp"
+              name="photo"
             />
            
           </div>

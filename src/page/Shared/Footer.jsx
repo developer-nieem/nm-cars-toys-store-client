@@ -38,6 +38,7 @@ const Footer = () => {
               <ul className="list-unstyled links">
                 <li>Email: nieemhossen@gmail.com </li>
                 <li>Phone: 01838046483 </li>
+                <li>Address: Dhaka, Bangladesh </li>
                 <li className='fs-4 text-center '> <a className='px-2' href="#"><FaFacebook></FaFacebook></a> <a className='px-2'  href="#"> <FaTwitter></FaTwitter></a> <a className='px-2' href="#"><FaYoutube></FaYoutube></a>  <a className='px-2' href="#"><FaEnvelope></FaEnvelope></a> </li>
                 
               </ul>
