@@ -1,0 +1,9 @@
+.banner-section{
+  background: url('https://images.unsplash.com/photo-1584641911870-6196a92c1920?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80') ;
+
+  background-size: cover;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.678);
+  background-blend-mode: multiply;
+}
+
