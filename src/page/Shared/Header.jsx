@@ -2,9 +2,19 @@ import { Link } from 'react-router-dom';
 import logo from '../../../public/logo.png'
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Header = () => {
-    const user =  'nieem';
+    const {user, logOut} =  useContext(AuthContext);
+
+    const logoutHandler =  () => {
+        logOut()
+        .then(() =>{})
+        .catch(error => {
+            console.error(error.message);
+        })
+    }
   return (
     
       <div className='shadow-lg'>
@@ -36,16 +46,20 @@ const Header = () => {
                 All Toys
                 </Link>
               </li>
-              <li className="nav-item">
+              {
+                user && <li className="nav-item">
                 <Link to='/' className="nav-link " aria-current="page" href="#">
                 My Toys
                 </Link>
               </li>
-              <li className="nav-item">
+              }
+             {
+                user &&  <li className="nav-item">
                 <Link to='/' className="nav-link " aria-current="page" href="#">
                 Add A Toy
                 </Link>
               </li>
+             }
               <li className="nav-item">
                 <Link to='/' className="nav-link " aria-current="page" href="#">
                 Blogs
@@ -56,13 +70,13 @@ const Header = () => {
             <div>
               {
                 user ? <>  <img  data-tooltip-id="my-tooltip"
-                data-tooltip-content={ user}
+                data-tooltip-content={ user? user.displayName : ''}
                 style={{ width: "44px", height: "44px" }}
                 className="rounded-circle"
                 src={user.photoURL ? user.photoURL : 'https://cdn-icons-png.flaticon.com/512/666/666201.png'}
                 alt=""
               />
-              <Tooltip id="my-tooltip" /> <button  className="btn btn-primary">Log Out</button> </> : <Link to='/login' className="btn btn-info ms-2">LogIn</Link>
+              <Tooltip id="my-tooltip" /> <button onClick={logoutHandler}  className="btn btn-primary">Log Out</button> </> : <Link to='/login' className="btn btn-info ms-2">LogIn</Link>
               }
              
               
