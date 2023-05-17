@@ -1,7 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
+    const {signInUser , loginWithGoogle} =  useContext(AuthContext)
+
     const [showError , setShowError] =  useState('')
+   
     const loginHandler= event =>{
         event.preventDefault();
 
@@ -17,9 +23,8 @@ const Login = () => {
             const user =  result.user;
             console.log(user);
             setShowError('');
-            navigate(from , {replace:true})
-           
             
+           
         })
         .catch(error=>{
             console.log(error.message);
@@ -46,7 +51,7 @@ const Login = () => {
     <div className="w-25 mx-auto my-5 shadow-lg p-4 rounded-2">
        <form onSubmit={loginHandler}>
         <div className="mb-3">
-          <label for="exampleInputEmail1" className="form-label">
+          <label htmlFor="exampleInputEmail1" className="form-label">
             Email address
           </label>
           <input
@@ -60,7 +65,7 @@ const Login = () => {
          
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label">
             Password
           </label>
           <input
