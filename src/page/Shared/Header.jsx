@@ -6,7 +6,8 @@ import { Tooltip } from "react-tooltip";
 const Header = () => {
     const user =  'nieem';
   return (
-    <>
+    
+      <div className='shadow-lg'>
       <nav className="navbar container navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
@@ -69,7 +70,8 @@ const Header = () => {
           </div>
         </div>
       </nav>
-    </>
+      </div>
+    
   );
 };
 
