@@ -25,12 +25,15 @@ const AddToys = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Do you want to continue',
-                    icon: 'success',
-                    confirmButtonText: 'Okay '
-                  })
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Successfully Added!',
+                        text: 'Do you want to continue',
+                        icon: 'success',
+                        confirmButtonText: 'Okay '
+                      })
+                }
+                
             })
   };
 

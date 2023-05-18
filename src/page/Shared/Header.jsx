@@ -49,7 +49,7 @@ const Header = () => {
               </li>
               {
                 user && <li className="nav-item">
-                <Link to='/' className="nav-link " aria-current="page" href="#">
+                <Link to='/mytoys' className="nav-link " aria-current="page" href="#">
                 My Toys
                 </Link>
               </li>
