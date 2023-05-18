@@ -11,6 +11,8 @@ const AllToys = () => {
         setToys(result);
       });
   }, []);
+
+  
   return (
     <div className="container my-5">
       <table className="table table-striped shadow-lg ">

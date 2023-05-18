@@ -12,7 +12,7 @@ const auth = getAuth(app)
     const [user , setUser] =  useState(null);
     const [loading, setLoading] =  useState(true);
 
-    // register user
+    // user created with email & pass
     const createUser =(email, pass)=>{
         
             return createUserWithEmailAndPassword(auth, email, pass)
@@ -26,7 +26,7 @@ const auth = getAuth(app)
        })
     }
 
-    // sign in user 
+    // Login user 
     const signInUser = (email,pass) =>{
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, pass)
@@ -40,7 +40,7 @@ const auth = getAuth(app)
     }
 
 
-    // current user  observer 
+    // manage current user 
 
     useEffect(()=>{
       const unsubscribe =   onAuthStateChanged(auth, (loggedUser) =>{

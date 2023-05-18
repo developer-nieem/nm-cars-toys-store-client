@@ -7,10 +7,12 @@ const Login = () => {
   const { signInUser, loginWithGoogle } = useContext(AuthContext);
   const [showError, setShowError] = useState("");
  
+  // for redirect code 
   const navigate = useNavigate()
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
+  // sign in with email
   const loginHandler = (event) => {
     event.preventDefault();
 
