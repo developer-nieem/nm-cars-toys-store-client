@@ -2,10 +2,10 @@ import React from 'react';
 
 const ChooseUs = () => {
     return (
-        <div className='container'>
-            <div className="row">
+        <div className='container mt-5'>
+            <div className="row mt-5">
                 <div className="col text-center">
-                    <h2 className='fw-light'>WHY CHOOSE US? </h2>
+                    <h2 className='fw-light mt-5'>WHY CHOOSE US? </h2>
                     <hr className='w-25 mx-auto' />
                     <p>Choose NM Car Toys Shop for an unmatched selection, premium quality and authenticity, <br /> exceptional customer service, and a convenient shopping experience.</p>
                     <div className="row my-4 ">
