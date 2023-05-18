@@ -1,4 +1,5 @@
 import Banner from "../components/Banner";
+import ChooseUs from "../components/ChooseUs";
 import Gallery from "../components/Gallery";
 
 const Home = () => {
@@ -6,6 +7,8 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Gallery></Gallery>
+
+            <ChooseUs></ChooseUs>
         </div>
     );
 };
