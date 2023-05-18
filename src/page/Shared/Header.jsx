@@ -55,13 +55,13 @@ const Header = () => {
               }
              {
                 user &&  <li className="nav-item">
-                <Link to='/' className="nav-link " aria-current="page" href="#">
+                <Link to='/addtoys' className="nav-link " aria-current="page">
                 Add A Toy
                 </Link>
               </li>
              }
               <li className="nav-item">
-                <Link to='/' className="nav-link " aria-current="page" href="#">
+                <Link to='/' className="nav-link " aria-current="page" >
                 Blogs
                 </Link>
               </li>
@@ -70,7 +70,7 @@ const Header = () => {
             <div>
               {
                 user ? <>  <img  data-tooltip-id="my-tooltip"
-                data-tooltip-content={ user? user.displayName : ''}
+                data-tooltip-content={ user.displayName? user.displayName : ''}
                 style={{ width: "44px", height: "44px" }}
                 className="rounded-circle"
                 src={user.photoURL ? user.photoURL : 'https://cdn-icons-png.flaticon.com/512/666/666201.png'}
