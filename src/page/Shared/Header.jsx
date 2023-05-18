@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../public/logo.png'
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
@@ -21,7 +21,7 @@ const Header = () => {
       <div className='shadow-lg'>
       <nav className="navbar container navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" >
             <img style={{width:'35%'}} className=' ' src={logo} alt="cars" />
           </a>
           <button
@@ -36,35 +36,35 @@ const Header = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav m-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link to='/' className="nav-link " aria-current="page" href="#">
+            <ul className="navbar-nav m-auto mb-2  fw-semibold  mb-lg-0 navmenu">
+              <li className="nav-item ">
+                <NavLink  to='/' className={`nav-link  `} >
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to='/alltoys' className="nav-link " aria-current="page" href="#">
+                <NavLink to='/alltoys' className="nav-link " >
                 All Toys
-                </Link>
+                </NavLink>
               </li>
               {
                 user && <li className="nav-item">
-                <Link to='/mytoys' className="nav-link " aria-current="page" href="#">
+                <NavLink to='/mytoys' className="nav-link " >
                 My Toys
-                </Link>
+                </NavLink>
               </li>
               }
              {
                 user &&  <li className="nav-item">
-                <Link to='/addtoys' className="nav-link " aria-current="page">
+                <NavLink to='/addtoys' className="nav-link ">
                 Add A Toy
-                </Link>
+                </NavLink>
               </li>
              }
               <li className="nav-item">
-                <Link to='/' className="nav-link " aria-current="page" >
+                <NavLink to='/' className="nav-link " >
                 Blogs
-                </Link>
+                </NavLink>
               </li>
               
             </ul>

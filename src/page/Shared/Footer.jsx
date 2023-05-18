@@ -13,23 +13,23 @@ const Footer = () => {
             </div>
             <div className="col-md-2 mt-4 ml-auto">
               <h3>Shop</h3>
-              <ul className=" links">
-                <li><a >Sell online</a></li>
-                <li><a >Features</a></li>
-                <li><a >Examples</a></li>
-                <li><a >Website editors</a></li>
-                <li><a >Online retail</a></li>
+              <ul className="list-unstyled   links">
+                <li className='my-2'><a className='text-light' href='#'>Sell online</a></li>
+                <li className='my-2'><a className='text-light' href='#'>Features</a></li>
+                <li className='my-2'><a className='text-light' href='#'>Examples</a></li>
+                <li className='my-2'><a className='text-light' href='#'>Website editors</a></li>
+                <li className='my-2'><a className='text-light' href='#'>Online retail</a></li>
               </ul>
             </div>
            
             <div className="col-md-2 mt-4 ml-auto">
               <h3>About</h3>
-              <ul className=" links">
-                <li><a >Contact</a></li>
-                <li><a >Services</a></li>
-                <li><a >Team</a></li>
-                <li><a >Career</a></li>
-                <li><a >Contacts</a></li>
+              <ul className="list-unstyled links">
+                <li className='my-2'><a className='text-light' href='#'>Contact</a></li>
+                <li className='my-2'><a className='text-light' href='#'>Services</a></li>
+                <li className='my-2'><a className='text-light' href='#'>Team</a></li>
+                <li className='my-2'><a className='text-light' href='#'>Career</a></li>
+                <li className='my-2'><a className='text-light' href='#'>Contacts</a></li>
               </ul>
             </div>
 
@@ -39,7 +39,7 @@ const Footer = () => {
                 <li>Email: nieemhossen@gmail.com </li>
                 <li>Phone: 01838046483 </li>
                 <li>Address: Dhaka, Bangladesh </li>
-                <li className='fs-4 text-center '> <a className='px-2' href="#"><FaFacebook></FaFacebook></a> <a className='px-2'  href="#"> <FaTwitter></FaTwitter></a> <a className='px-2' href="#"><FaYoutube></FaYoutube></a>  <a className='px-2' href="#"><FaEnvelope></FaEnvelope></a> </li>
+                <li className='fs-4 text-md-center '> <a className='px-2' href="#"><FaFacebook></FaFacebook></a> <a className='px-2'  href="#"> <FaTwitter></FaTwitter></a> <a className='px-2' href="#"><FaYoutube></FaYoutube></a>  <a className='px-2' href="#"><FaEnvelope></FaEnvelope></a> </li>
                 
               </ul>
             </div>

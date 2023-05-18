@@ -11,3 +11,15 @@
   height: 320px;
 }
 
+.navmenu li a{
+  color: rgb(49, 19, 63) !important;
+ 
+}
+.active{
+  color: rgb(89, 17, 122) !important;
+  background: #0000003b;
+  border-radius: 8px;
+}
+
+
+

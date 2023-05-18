@@ -4,7 +4,7 @@ const ErrorPage = () => {
     const error =  useRouteError();
     console.log(error);
   return (
-    <div className="h-100">
+    <div className="container h-100">
       <div className="row  align-items-center">
         <div className="col-md-4"></div>
         <div className="col-md-4 mt-5">
