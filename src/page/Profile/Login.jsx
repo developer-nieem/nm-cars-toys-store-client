@@ -1,12 +1,15 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const { signInUser, loginWithGoogle } = useContext(AuthContext);
-
   const [showError, setShowError] = useState("");
+ 
+  const navigate = useNavigate()
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const loginHandler = (event) => {
     event.preventDefault();
@@ -23,6 +26,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         setShowError("");
+        navigate(from , {replace:true})
       })
       .catch((error) => {
         console.log(error.message);
@@ -30,7 +34,7 @@ const Login = () => {
       });
   };
 
-  // google login
+  // login with google 
   const googleHandler = () => {
     loginWithGoogle()
       .then((result) => {
