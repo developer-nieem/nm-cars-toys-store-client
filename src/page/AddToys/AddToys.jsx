@@ -12,7 +12,20 @@ const AddToys = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+            fetch('http://localhost:3000/add-toys', {
+                method: 'POST',
+                headers : {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+  };
 
   return <div className="container">
        <div className="row my-3">
