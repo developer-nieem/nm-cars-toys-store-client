@@ -1,6 +1,7 @@
 import Banner from "../components/Banner";
 import ChooseUs from "../components/ChooseUs";
 import Gallery from "../components/Gallery";
+import Mission from "../components/Mission";
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
             <Gallery></Gallery>
 
             <ChooseUs></ChooseUs>
+            <Mission></Mission>
         </div>
     );
 };
