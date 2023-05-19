@@ -49,7 +49,7 @@ const AllToys = () => {
           </tr>
         </thead>
         <tbody >
-          {toys.slice(0, 20).map((toy , index) => (
+          {toys.map((toy , index) => (
             
               <tr key={toy._id}>
                 <th scope="row">{index +1}</th>
