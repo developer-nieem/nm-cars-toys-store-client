@@ -16,7 +16,7 @@ const AddToys = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-            fetch('http://localhost:3000/add-toys', {
+            fetch('https://assignments11-server-developer-nieem.vercel.app/add-toys', {
                 method: 'POST',
                 headers : {
                     'content-type' : 'application/json'

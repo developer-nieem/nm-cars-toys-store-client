@@ -14,7 +14,7 @@ const MyToys = () => {
   const [liveUpdate, setLiveUpdate] = useState(false);
   const [selectedSort, setSelectedSort] = useState("");
   useEffect(() => {
-    fetch(`http://localhost:3000/mytoys/${user?.email}`)
+    fetch(`https://assignments11-server-developer-nieem.vercel.app/mytoys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -35,7 +35,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/deletetoy/${id}`, {
+        fetch(`https://assignments11-server-developer-nieem.vercel.app/deletetoy/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -52,14 +52,14 @@ const MyToys = () => {
   //   sorting  system
   useEffect(() => {
     if (selectedSort == "high") {
-      fetch(`http://localhost:3000/descendingmytoys/${user?.email}`)
+      fetch(`https://assignments11-server-developer-nieem.vercel.app/descendingmytoys/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
           setMyToys(data);
         });
     } else if (selectedSort == "low") {
-      fetch(`http://localhost:3000/ascendingmytoys/${user?.email}`)
+      fetch(`https://assignments11-server-developer-nieem.vercel.app/ascendingmytoys/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

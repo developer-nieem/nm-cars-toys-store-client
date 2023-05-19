@@ -33,7 +33,7 @@ const UpdateToy = () => {
   // Updated toys data 
   const onSubmit = (data) => {
     
-    fetch(`http://localhost:3000/updatetoys/${data._id}`, {
+    fetch(`https://assignments11-server-developer-nieem.vercel.app/updatetoys/${data._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

@@ -7,7 +7,7 @@ const Categories = () => {
 
     console.log(toys);
   useEffect(() => {
-    fetch(`http://localhost:3000/toys/${activeTab}`)
+    fetch(`https://assignments11-server-developer-nieem.vercel.app/toys/${activeTab}`)
       .then((res) => res.json())
       .then((result) => {
         setToys(result);

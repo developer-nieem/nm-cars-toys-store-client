@@ -50,12 +50,12 @@ const router = createBrowserRouter([
         {
           path:'/updatedetails/:id',
           element:<PrivateRoute><UpdateToy></UpdateToy></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:3000/updatedetails/${params.id}`)
+          loader: ({params}) => fetch(`https://assignments11-server-developer-nieem.vercel.app/updatedetails/${params.id}`)
         },
         {
           path:'/toysdetails/:id',
           element:<PrivateRoute><ToysDetails></ToysDetails></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:3000/toysdetails/${params.id}`)
+          loader: ({params}) => fetch(`https://assignments11-server-developer-nieem.vercel.app/toysdetails/${params.id}`)
 
         },
        

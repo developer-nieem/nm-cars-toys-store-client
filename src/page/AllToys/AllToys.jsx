@@ -10,7 +10,7 @@ const AllToys = () => {
 
   console.log(toys);
   useEffect(() => {
-    fetch(`http://localhost:3000/toys/all`)
+    fetch(`https://assignments11-server-developer-nieem.vercel.app/toys/all`)
       .then((res) => res.json())
       .then((result) => {
         setToys(result);
@@ -18,7 +18,7 @@ const AllToys = () => {
   }, []);
 
   const handleSearch =  () => {
-        fetch(`http://localhost:3000/toyssearch/${searchText}`)
+        fetch(`https://assignments11-server-developer-nieem.vercel.app/toyssearch/${searchText}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data);
