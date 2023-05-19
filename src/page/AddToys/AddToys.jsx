@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet";
 
 const AddToys = () => {
     const {user} =  useContext(AuthContext);
@@ -38,6 +39,9 @@ const AddToys = () => {
   };
 
   return <div className="container">
+     <Helmet>
+      <title>NM Car toys Store | Add A toy</title>
+      </Helmet>
        <div className="row my-3">
         <div className="col">
         <form onSubmit={handleSubmit(onSubmit)}>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const AllToys = () => {
@@ -27,7 +28,9 @@ const AllToys = () => {
 
   return (
     <div className="container-fluid my-5">
-      
+       <Helmet>
+      <title>NM Car toys Store | All Toys</title>
+      </Helmet>
       <div className="text-center input-group w-25 m-auto my-4">
       <input  onChange={(e) => setSearchText(e.target.value)} className="form-control" type="search" name="search" placeholder="Search Toys" />
       <button onClick={handleSearch} className="btn btn-primary">Search</button>

@@ -1,5 +1,6 @@
 import { Rating } from "@smastrom/react-rating";
 import React from "react";
+import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
 
 const ToysDetails = () => {
@@ -8,6 +9,9 @@ const ToysDetails = () => {
 
   return (
     <div className="container my-5"> 
+     <Helmet>
+      <title>NM Car toys Store | Toy Details</title>
+      </Helmet>
       <div className="card mb-3" >
         <div className="row g-0">
           <div className="col-md-4">

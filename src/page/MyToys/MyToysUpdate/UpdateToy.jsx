@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { Navigate, redirect, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const UpdateToy = () => {
   const { user } = useContext(AuthContext);
@@ -56,6 +57,9 @@ const UpdateToy = () => {
 
   return (
     <div className="container my-5">
+       <Helmet>
+      <title>NM Car toys Store | Update Toy</title>
+      </Helmet>
       <h2  className="text-center my-5">You Want to update :  {toysName}</h2>
       <div className="row">
         <div className="col-md-2"></div>

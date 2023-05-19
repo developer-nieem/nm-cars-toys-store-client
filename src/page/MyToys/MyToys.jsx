@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import UpdateModal from "./MyToysUpdate/UpdateToy";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -68,6 +69,9 @@ const MyToys = () => {
 
   return (
     <div className="container-fluid my-5">
+         <Helmet>
+      <title>NM Car toys Store | My Toys</title>
+      </Helmet>
       <div className="row">
         <div className="col-md-6">
           <h2 className="mb-4">Posted All My Toys </h2>

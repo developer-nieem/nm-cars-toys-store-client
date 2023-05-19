@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { signInUser, loginWithGoogle } = useContext(AuthContext);
@@ -51,6 +52,9 @@ const Login = () => {
 
   return (
     <div className="container">
+      <Helmet>
+      <title>NM Car toys Store | Login</title>
+      </Helmet>
       <div className="row">
         <div className="col-md-4"></div>
         <div className="col-md-4">
