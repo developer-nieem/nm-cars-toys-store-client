@@ -6,6 +6,7 @@ import UpdateModal from "./MyToysUpdate/UpdateToy";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 
+// ALl posted toy
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
@@ -21,27 +22,31 @@ const MyToys = () => {
       });
   }, [user, liveUpdate]);
 
+
+//   delete posted toy 
   const deleteToys = (id) => {
-    fetch(`http://localhost:3000/deletetoy/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            setLiveUpdate(!liveUpdate);
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-          }
-        });
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/deletetoy/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              setLiveUpdate(!liveUpdate);
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+      }
+    });
   };
 
   //   sorting  system
@@ -63,14 +68,15 @@ const MyToys = () => {
     }
   }, [selectedSort]);
 
+//   sorting function 
   const handleSorting = (event) => {
     setSelectedSort(event.target.value);
   };
 
   return (
     <div className="container-fluid my-5">
-         <Helmet>
-      <title>NM Car toys Store | My Toys</title>
+      <Helmet>
+        <title>NM Car toys Store | My Toys</title>
       </Helmet>
       <div className="row">
         <div className="col-md-6">

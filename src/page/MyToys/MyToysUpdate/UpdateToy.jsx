@@ -30,8 +30,8 @@ const UpdateToy = () => {
     formState: { errors },
   } = useForm();
 
+  // Updated toys data 
   const onSubmit = (data) => {
-    console.log(data);
     
     fetch(`http://localhost:3000/updatetoys/${data._id}`, {
       method: "PUT",
