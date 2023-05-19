@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
+  const [searchText, setSearchText] = useState("");
+
+  // console.log(searchText);
+
   console.log(toys);
   useEffect(() => {
     fetch(`http://localhost:3000/toys/all`)
@@ -12,9 +16,23 @@ const AllToys = () => {
       });
   }, []);
 
+  const handleSearch =  () => {
+        fetch(`http://localhost:3000/toyssearch/${searchText}`)
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data);
+            setToys(data)
+        })
+  }
 
   return (
     <div className="container-fluid my-5">
+      
+      <div className="text-center input-group w-25 m-auto my-4">
+      <input  onChange={(e) => setSearchText(e.target.value)} className="form-control" type="search" name="search" placeholder="Search Toys" />
+      <button onClick={handleSearch} className="btn btn-primary">Search</button>
+      </div>
+
       <table className="table table-striped shadow-lg ">
         <thead className="">
           <tr className="table-secondary">
