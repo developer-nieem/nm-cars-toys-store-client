@@ -31,7 +31,7 @@ const Toy = ({ toy }) => {
           </div>
           <div className="card-footer d-flex justify-content-between align-items-center">
           
-          <small class="text-body-secondary d-flex">
+          <small className="text-body-secondary d-flex">
             Rating :   <Rating  style={{ maxWidth: 100 }} value={rating} readOnly />
              {rating}
              </small>
