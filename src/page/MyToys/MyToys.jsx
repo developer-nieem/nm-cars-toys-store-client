@@ -10,7 +10,7 @@ const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const [liveUpdate, setLiveUpdate] = useState(false);
-
+  const [selectedSort, setSelectedSort] = useState("");
   useEffect(() => {
     fetch(`http://localhost:3000/mytoys/${user?.email}`)
       .then((res) => res.json())
@@ -18,42 +18,72 @@ const MyToys = () => {
         console.log(data);
         setMyToys(data);
       });
-  }, [user , liveUpdate ]);
+  }, [user, liveUpdate]);
 
-  const deleteToys =  (id) => {
+  const deleteToys = (id) => {
+    fetch(`http://localhost:3000/deletetoy/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            setLiveUpdate(!liveUpdate);
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          }
+        });
+      });
+  };
 
-    fetch(`http://localhost:3000/deletetoy/${id}` , {
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data => {
-            Swal.fire({
+  //   sorting  system
+  useEffect(() => {
+    if (selectedSort == "high") {
+      fetch(`http://localhost:3000/descendingmytoys/${user?.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setMyToys(data);
+        });
+    } else if (selectedSort == "low") {
+      fetch(`http://localhost:3000/ascendingmytoys/${user?.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setMyToys(data);
+        });
+    }
+  }, [selectedSort]);
 
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                    setLiveUpdate(!liveUpdate)
-                  Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                  )
-                }
-              })
-        })
-
-    
-
-  }
+  const handleSorting = (event) => {
+    setSelectedSort(event.target.value);
+  };
 
   return (
     <div className="container-fluid my-5">
+      <div className="row">
+        <div className="col-md-6">
+          <h2 className="mb-4">Posted All My Toys </h2>
+        </div>
+        <div className="col-md-6 text-end">
+          <select
+            onChange={handleSorting}
+            class="form-select w-25 ms-auto"
+            aria-label="Default select example"
+          >
+            <option value="all">All</option>
+            <option value="low">Sort with Low Price</option>
+            <option value="high">Sort with High Price</option>
+          </select>
+        </div>
+      </div>
       <table className="table table-striped shadow-lg ">
         <thead className="">
           <tr className="table-secondary">
@@ -91,11 +121,20 @@ const MyToys = () => {
               <td>{toy.quantity}p</td>
               <td>{toy.rating} star</td>
               <td>
-                <Link className="btn btn-primary" to={`/updatedetails/${toy._id}`}>Edit</Link>
+                <Link
+                  className="btn btn-primary"
+                  to={`/updatedetails/${toy._id}`}
+                >
+                  Edit
+                </Link>
               </td>
               <td>
-                
-                <button onClick={ () => deleteToys(toy._id)} className="btn btn-danger">Delete</button>
+                <button
+                  onClick={() => deleteToys(toy._id)}
+                  className="btn btn-danger"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
