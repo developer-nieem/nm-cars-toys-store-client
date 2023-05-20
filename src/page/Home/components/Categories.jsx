@@ -3,7 +3,8 @@ import Toy from './Toy';
 
 const Categories = () => {
     const [activeTab, setActiveTab] = useState("all");
-    const [toys , setToys] =  useState([])
+    const [toys , setToys] =  useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     console.log(toys);
   useEffect(() => {
@@ -11,6 +12,7 @@ const Categories = () => {
       .then((res) => res.json())
       .then((result) => {
         setToys(result);
+        setIsLoading(false);
       });
   }, [activeTab]);
 
@@ -56,9 +58,18 @@ const Categories = () => {
             </div>
 
               <div className='row row-cols-1 my-4 row-cols-md-3 g-4'>
-                {
+                
+                   {isLoading ? (
+                    <div className="text-center w-100">
+                      <div className="spinner-border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </div>
+                    </div>
+                  ) : (
                     toys.map((toy ) => <Toy key={toy._id} toy={toy}></Toy>)
-                }
+                  )}
+                   
+                
               </div>
 
         </div>

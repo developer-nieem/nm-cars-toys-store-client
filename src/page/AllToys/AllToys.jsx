@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   const [searchText, setSearchText] = useState("");
-
+  const [isLoading, setIsLoading] = useState(true);
   // console.log(searchText);
 
   console.log(toys);
@@ -14,6 +14,7 @@ const AllToys = () => {
       .then((res) => res.json())
       .then((result) => {
         setToys(result);
+        setIsLoading(false)
       });
   }, []);
 
@@ -49,19 +50,30 @@ const AllToys = () => {
           </tr>
         </thead>
         <tbody >
-          {toys.map((toy , index) => (
+
+        {isLoading ? (
+                    <div className="text-center w-100">
+                      <div className="spinner-border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </div>
+                    </div>
+                  ) : (
+                    toys.map((toy , index) => (
             
-              <tr key={toy._id}>
-                <th scope="row">{index +1}</th>
-                <td>{toy.sellerName}</td>
-                <td>{toy.toysName}</td>
-                <td>{toy.subCategory}</td>
-                <td>${toy.price}</td>
-                <td>{toy.quantity}p</td>
-                <td> <Link className="btn btn-primary" to={`/toysdetails/${toy._id}`}>View Details</Link> </td>
-              </tr>
-           
-          ))}
+                      <tr key={toy._id}>
+                        <th scope="row">{index +1}</th>
+                        <td>{toy.sellerName}</td>
+                        <td>{toy.toysName}</td>
+                        <td>{toy.subCategory}</td>
+                        <td>${toy.price}</td>
+                        <td>{toy.quantity}p</td>
+                        <td> <Link className="btn btn-primary" to={`/toysdetails/${toy._id}`}>View Details</Link> </td>
+                      </tr>
+                   
+                  ))
+                  )}
+
+          
         </tbody>
       </table>
     </div>
