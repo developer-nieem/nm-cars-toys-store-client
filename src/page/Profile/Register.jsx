@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser, userProfile } = useContext(AuthContext);
@@ -25,6 +26,12 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         setShowError("");
+        Swal.fire({
+          title: 'Register Successful!',
+          text: 'Do you want to continue',
+          icon: 'success',
+          confirmButtonText: 'Okay'
+        })
         userProfile(name, photo)
           .then(() => {})
           .catch((error) => {
