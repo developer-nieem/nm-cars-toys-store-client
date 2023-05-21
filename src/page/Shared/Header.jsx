@@ -21,8 +21,8 @@ const Header = () => {
       <div className='shadow-lg'>
       <nav className="navbar container navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" >
-            <img style={{width:'35%'}} className=' ' src={logo} alt="cars" />
+          <a className="w-50 " >
+            <img  className='logo-img ' src={logo} alt="cars" />
           </a>
           <button
             className="navbar-toggler"

@@ -22,5 +22,13 @@
   border-radius: 8px;
 }
 
+.logo-img{
+  width: 20% !important;
+}
 
 
+@media only screen and (max-width: 600px) {
+  .logo-img{
+    width: 47% !important;
+  }
+}
